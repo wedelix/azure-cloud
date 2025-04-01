@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: wedelixazurecloud 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wedelixazurecloud
+  template:
+    metadata:
+      labels:
+        app: wedelixazurecloud 
+    spec:
+      containers:
+        - name: wedelixazurecloud 
+          image: wedelazurepetstorecr.azurecr.io/wedelixazurecloud
+          ports:
+          - containerPort: 80
