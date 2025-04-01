@@ -40,6 +40,8 @@ stages:
     displayName: Build App
     pool:
       name: 'local'
+      demands:
+        - agent.name -equals localagent
     steps:
     - script: echo -n -e "{\"version\":\"$(Build.BuildNumber) - $(tag)\"}" > petstore/petstorepetservice/src/main/resources/version.json
 
@@ -79,6 +81,8 @@ stages:
     displayName: Deploy App
     pool:
       name: 'local'
+      demands:
+        - agent.name -equals localagent
     environment: 'Development'
     strategy:
       runOnce:
