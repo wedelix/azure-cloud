@@ -39,11 +39,11 @@ spec:
           #     secretKeyRef:
           #       name: emailtopicconnstring
           #       key: secret
-          - name: PETSTOREORDERSERVICE_SUBSCRIPTION_ID
-            valueFrom:
-              secretKeyRef:
-                name: subscriptionid
-                key: secret
+          # - name: PETSTOREORDERSERVICE_SUBSCRIPTION_ID
+          #   valueFrom:
+          #     secretKeyRef:
+          #       name: subscriptionid
+          #       key: secret
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
