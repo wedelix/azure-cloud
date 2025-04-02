@@ -39,9 +39,7 @@ stages:
   - job: Build
     displayName: Build App
     pool:
-      name: 'local'
-      demands:
-        - agent.name -equals localagent
+      vmImage: 'ubuntu-latest'
     steps:
     - script: echo -n -e "{\"version\":\"$(Build.BuildNumber) - $(tag)\"}" > petstore/petstorepetservice/src/main/resources/version.json
 
@@ -80,9 +78,7 @@ stages:
   - deployment: Deploy
     displayName: Deploy App
     pool:
-      name: 'local'
-      demands:
-        - agent.name -equals localagent
+      vmImage: 'ubuntu-latest'
     environment: 'Development'
     strategy:
       runOnce:
