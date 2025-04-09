@@ -16,7 +16,7 @@ resources:
 variables:
 
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '5dd81d7f-2e78-45b2-9598-841561161ab5'
+  dockerRegistryServiceConnection: 'wedelpetstore-acr'
   imageRepository: 'petstorepetservice'
   containerRegistry: 'wedelazurepetstorecr.azurecr.io'
   dockerfilePath: 'petstore/petstorepetservice/Dockerfile'
@@ -88,7 +88,7 @@ stages:
             displayName: Deploy to Kubernetes cluster
             inputs:
               action: deploy
-              kubernetesServiceConnection: aks
+              kubernetesServiceConnection: wedelpetstore-aks
               manifests: |
                 $(Pipeline.Workspace)/manifests/petstorepetservice-deployment-everything-enabled.yml
                 $(Pipeline.Workspace)/manifests/petstorepetservice-service-everything-enabled.yml
