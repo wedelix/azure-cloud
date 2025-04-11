@@ -15,6 +15,8 @@ spec:
       nodeSelector:
         "kubernetes.io/os": linux
         agentpool: nodepool1
+      imagePullSecrets:
+        - name: regcred
       containers:
       - name: petstoreservice
         image: wedelazurepetstorecr.azurecr.io/petstorepetservice:latest
